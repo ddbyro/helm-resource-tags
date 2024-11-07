@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "annotations": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "environment": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "project": {
+          "type": "string"
+        },
+        "costCenter": {
+          "type": "string"
+        },
+        "application": {
+          "type": "string"
+        }
+      },
+      "required": ["name", "environment", "owner", "project", "costCenter", "application"]
+    }
+  }
+}

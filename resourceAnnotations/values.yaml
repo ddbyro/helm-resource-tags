@@ -1,0 +1,7 @@
+annotations:
+  name: "my-resource"
+  environment: "production"
+  owner: "team-name"
+  project: "my-project"
+  costCenter: "12345"
+  application: "my-application"
