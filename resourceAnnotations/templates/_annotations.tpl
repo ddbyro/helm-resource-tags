@@ -1,10 +1,16 @@
 {{- define "resourceAnnotations.annotations" -}}
+
 {{- $requiredKeys := list "name" "environment" "owner" "project" "costCenter" "application" -}}
+{{- $actualKeys := .Values.annotations | keys -}}
+
 {{- range $key := $requiredKeys -}}
-{{- required (printf "Annotation %s is required" $key) (index .Values.annotations $key) -}}
+  {{- if not (has $key $actualKeys) -}}
+    {{- fail (printf "Annotation %s is required" $key) -}}
+  {{- end -}}
 {{- end }}
-annotations:
-  {{- range $key, $value := .Values.annotations }}
-  {{ $key }}: {{ $value | quote }}
-  {{- end }}
+
+{{- range $key, $value := .Values.annotations }}
+{{ $key }}: {{ $value | quote }}
+{{- end }}
+
 {{- end -}}
